@@ -1,0 +1,78 @@
+doctype html
+html
+  head
+    title Cursa List
+    link(rel="stylesheet" href="/css/style.css")
+  body
+    a(href="/cursa/add" class="btn btn-primary") Add New Cursa
+    
+    h1 Cursa Transport Marfa
+
+    table(border="1" cellpadding="10")
+      thead
+        tr
+          th ID
+          th Vehicul Id
+          th Loc Plecare
+          th Loc sosire
+          th Data ora plecare
+          th Data ora sosire
+          th Cost total
+          th Tip Marfa
+          th Greutate Marfa
+          th Volum Marfa
+          th Conditii Speciale
+          th Asigurare Marfa
+          th Actions
+      tbody
+        each cursa in cursaList1
+          tr
+            td= cursa.CURSA_ID
+            td= cursa.VEHICUL_ID || 'N/A'
+            td= cursa.LOC_PLECARE
+            td= cursa.LOC_SOSIRE
+            td= cursa.DATA_ORA_PLECARE
+            td= cursa.DATA_ORA_SOSIRE || 'N/A'
+            td= cursa.COST_TOTAL
+            td= cursa.TIP_MARFA
+            td= cursa.GREUTATE_MARFA
+            td= cursa.VOLUM_MARFA
+            td= cursa.CONDITII_SPECIALE
+            td= cursa.ASIGURARE_MARFA
+            td
+              a(href=`/cursa/edit/${cursa.CURSA_ID}` class="btn btn-warning") Edit
+              form(action=`/cursa/${cursa.CURSA_ID}?_method=DELETE` method="POST" class="tabel_form" style="display:inline")
+                button(type="submit") Delete
+
+
+  h1 Cursa Transport Persoane
+
+  table(border="1" cellpadding="10")
+      thead
+        tr
+          th ID
+          th Vehicul Id
+          th Loc Plecare
+          th Loc sosire
+          th Data ora plecare
+          th Data ora sosire
+          th Cost total
+          th Numar pasageri
+          th Ghid Turistic
+          th Actions
+      tbody
+        each cursa in cursaList2
+          tr
+            td= cursa.CURSA_ID
+            td= cursa.VEHICUL_ID || 'N/A'
+            td= cursa.LOC_PLECARE
+            td= cursa.LOC_SOSIRE
+            td= cursa.DATA_ORA_PLECARE
+            td= cursa.DATA_ORA_SOSIRE || 'N/A'
+            td= cursa.COST_TOTAL
+            td= cursa.NR_PASAGERI
+            td= cursa.GHID_TURISTIC
+            td
+              a(href=`/cursa/edit/${cursa.CURSA_ID}` class="btn btn-warning") Edit
+              form(action=`/cursa/${cursa.CURSA_ID}?_method=DELETE` method="POST" class="tabel_form" style="display:inline")
+                button(type="submit") Delete

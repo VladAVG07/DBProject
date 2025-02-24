@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title Listă Șoferi Vehicul
+    link(rel="stylesheet" href="/css/style.css")
+  body
+    h1 Listă Șoferi Vehicul
+
+    table(border="1" cellpadding="10")
+      thead
+        tr
+          th ID
+          th Vehicul ID
+          th Șofer ID
+          th Data Ora Începere
+          th Data Ora Sfârșit
+          th Acțiuni
+      tbody
+        each soferVehicul in soferVehiculList
+          tr
+            td= soferVehicul.SOFER_VEHICUL_ID
+            td= soferVehicul.VEHICUL_ID
+            td= soferVehicul.SOFER_ID
+            td= soferVehicul.DATA_ORA_START
+            td= soferVehicul.DATA_ORA_END
+            td
+              a(href=`/soferVehicul/edit/${soferVehicul.SOFER_VEHICUL_ID}` class="btn btn-warning") Editează
+              form(action=`/soferVehicul/${soferVehicul.SOFER_VEHICUL_ID}?_method=DELETE` method="POST" class="tabel_form" style="display: inline;")
+                button(type="submit" class="btn btn-danger") Șterge

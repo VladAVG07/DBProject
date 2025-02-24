@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    title Edit Client
+    link(rel="stylesheet" href="/css/style.css")
+  body
+    h1 Edit client
+
+    form(action=`/client/${client[0].CLIENT_ID}?_method=PUT` method="POST" class="page_form")
+      label(for="NUME") Nume:
+      input(type="text" id="NUME" name="NUME" value=`${client[0].NUME}` required)
+      br
+
+      label(for="DESCRIERE") Descriere:
+      input(type="text" id="DESCRIERE" name="DESCRIERE" value=`${client[0].DESCRIERE}` required)
+      br
+
+      label(for="TIP_CLIENT") Tip client:
+      input(type="text" id="TIP_CLIENT" name="TIP_CLIENT" value=`${client[0].TIP_CLIENT}` required)
+      br
+
+      label(for="NR_TELEFON") Nr. Telefon:
+      input(type="text" id="NR_TELEFON" name="NR_TELEFON" value=`${client[0].NR_TELEFON}` required)
+      br
+
+      label(for="EMAIL") Email:
+      input(type="email" id="EMAIL" name="EMAIL" value=`${client[0].EMAIL}` required)
+      br
+
+      label(for="JUDET") Județ:
+      input(type="text" id="JUDET" name="JUDET" value=`${client[0].JUDET}` required)
+      br
+
+      label(for="ORAS") Oraș:
+      input(type="text" id="ORAS" name="ORAS" value=`${client[0].ORAS}` required)
+      br
+
+      button(type="submit") Submit

@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    title Adauga mentenanta
+    link(rel="stylesheet" href="/css/style.css")
+  body
+    h1 Adauga mentenanta
+
+    form(action="/mentenanta" method="POST" class="page_form")
+      label(for="VEHICUL_ID") Vehicul:
+      select(id="VEHICUL_ID" name="VEHICUL_ID" required)
+        each vehicul in vehiculeList
+          option(value=vehicul.VEHICUL_ID)= vehicul.MARCA+" "+vehicul.MODEL
+      br
+
+      label(for="TIP_MENTENANTA") Tip Mentenanta:
+      input(type="text" id="TIP_MENTENANTA" name="TIP_MENTENANTA" required)
+      br
+
+      label(for="DESCRIERE") Descriere:
+      input(type="text" id="DESCRIERE" name="DESCRIERE" required)
+      br
+
+      label(for="COST") Cost:
+      input(type="number" id="COST" name="COST" step="0.01" required)
+      br
+
+      label(for="DATA_ORA_START") Data și ora start:
+      input(type="datetime-local" id="DATA_ORA_START" name="DATA_ORA_START" required)
+      br
+
+      label(for="DATA_ORA_END") Data și ora sfârșit:
+      input(type="datetime-local" id="DATA_ORA_END" name="DATA_ORA_END" required)
+      br
+
+      button(type="submit") Submit

@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.btn {
+    padding: 5px 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.tabel_form {
+    display: inline;
+}
+
+/* Form container */
+.page_form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Form labels and inputs */
+label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+} */
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Add some spacing between form elements */
+br {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    title Adauga client
+    link(rel="stylesheet" href="/css/style.css")
+  body
+    h1 Adauga client
+
+    form(action="/client" method="POST" class="page_form")
+      label(for="NUME") Nume:
+      input(type="text" id="NUME" name="NUME" required)
+      br
+
+      label(for="DESCRIERE") Descriere:
+      input(type="text" id="DESCRIERE" name="DESCRIERE" required)
+      br
+
+      label(for="TIP_CLIENT") Tip client:
+      input(type="text" id="TIP_CLIENT" name="TIP_CLIENT" required)
+      br
+
+      label(for="NR_TELEFON") Nr. Telefon:
+      input(type="text" id="NR_TELEFON" name="NR_TELEFON" required)
+      br
+
+      label(for="EMAIL") Email:
+      input(type="email" id="EMAIL" name="EMAIL" required)
+      br
+
+      label(for="JUDET") Județ:
+      input(type="text" id="JUDET" name="JUDET" required)
+      br
+
+      label(for="ORAS") Oraș:
+      input(type="text" id="ORAS" name="ORAS" required)
+      br
+
+      button(type="submit") Submit

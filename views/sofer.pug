@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title Soferi
+    link(rel="stylesheet" href="/css/style.css")
+  body
+    h1 Soferi
+
+    // Button to add a new record
+    a(href="/sofer/add" class="btn btn-primary") Adauga Sofer
+
+    // Display the table
+    table(border="1" cellpadding="10")
+      thead
+        tr
+          th ID
+          th Prenume
+          th Nume
+          th Data nastere
+          th Data angajare
+          th Salariu
+          th Actiuni
+      tbody
+        each sofer in soferList
+          tr
+            td= sofer.SOFER_ID
+            td= sofer.PRENUME
+            td= sofer.NUME
+            td= sofer.DATA_NASTERE.toISOString().slice(0, 10) 
+            td= sofer.DATA_ANGAJARE.toISOString().slice(0, 10) 
+            td= sofer.SALARIU.toFixed(2) 
+            td  
+                // Edit button
+                a(href=`/sofer/edit/${sofer.SOFER_ID}` class="btn btn-warning") Edit
+                // Delete button
+                form(action=`/sofer/${sofer.SOFER_ID}?_method=DELETE` method="POST" class="tabel_form" style="display: inline;")
+                  button(type="submit" class="btn btn-danger") Delete

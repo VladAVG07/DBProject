@@ -1,0 +1,83 @@
+doctype html
+html
+  head
+    title Edit Cursa
+    link(rel="stylesheet" href="/css/style.css")
+    script(src="/js/edit.js") 
+  body
+    h1 Edit Cursa
+
+    form(action=`/cursa/${cursa[0].CURSA_ID}?_method=PUT` method="POST")
+      fieldset
+        label(for="VEHICUL_ID") Vehicul:
+        select(id="VEHICUL_ID" name="VEHICUL_ID" required)
+          each vehicul in vehiculeList
+            option(value=vehicul.VEHICUL_ID)= vehicul.MARCA+" "+vehicul.MODEL
+        br
+
+        label(for="LOC_PLECARE") Loc plecare:
+        input(type="text" id="LOC_PLECARE" name="LOC_PLECARE" required value=`${cursa[0].LOC_PLECARE}`)
+        br
+
+        label(for="LOC_SOSIRE") Loc sosire:
+        input(type="text" id="LOC_SOSIRE" name="LOC_SOSIRE" required value=`${cursa[0].LOC_SOSIRE}`)
+        br
+
+        label(for="DATA_ORA_PLECARE") Data ora plecare:
+        input(type="datetime" id="DATA_ORA_PLECARE" name="DATA_ORA_PLECARE" required value=`${cursa[0].DATA_ORA_PLECARE.toISOString().slice(0, 19)}`)
+        br
+
+        label(for="DATA_ORA_SOSIRE") Data ora sosire:
+        input(type="datetime" id="DATA_ORA_SOSIRE" name="DATA_ORA_SOSIRE" value=`${cursa[0].DATA_ORA_SOSIRE.toISOString().slice(0, 19)}`)
+        br
+
+        label(for="COST_TOTAL") Cost total:
+        input(type="number" id="COST_TOTAL" name="COST_TOTAL" step="0.0001" value=`${cursa[0].COST_TOTAL}`)
+        br
+
+      fieldset
+        legend Subtable Selection
+        input(type="radio" id="marfa" name="subtable" value="marfa" checked=cursa.TYPE === 'marfa')
+        label(for="marfa") Transport Marfa
+        br 
+        input(type="radio" id="persoane" name="subtable" value="persoane" checked=cursa.TYPE === 'persoane')
+        label(for="persoane") Transport Persoane
+        br
+
+      // Additional fields for TRANSPORT_MARFA
+      div#marfa-fields(style=`display: ${cursa.TYPE === 'marfa' ? 'block' : 'none'}`)
+        fieldset
+          legend Transport Marfa Details
+          label(for="TIP_MARFA") Tip marfa:
+          input(type="text" id="TIP_MARFA" name="TIP_MARFA" value=`${cursa[0].TIP_MARFA}`)
+          br
+
+          label(for="GREUTATE_MARFA") Greutate marfa:
+          input(type="number" id="GREUTATE_MARFA" name="GREUTATE_MARFA" step="0.01" value=`${cursa[0].GREUTATE_MARFA}`)
+          br
+
+          label(for="VOLUM_MARFA") Volum marfa:
+          input(type="number" id="VOLUM_MARFA" name="VOLUM_MARFA" step="0.01" value=`${cursa[0].VOLUM_MARFA}`)
+          br
+
+          label(for="CONDITII_SPECIALE") Conditii speciale:
+          input(type="text" id="CONDITII_SPECIALE" name="CONDITII_SPECIALE" value=`${cursa[0].CONDITII_SPECIALE}`)
+          br
+
+          label(for="ASIGURARE_MARFA") Asigurare:
+          input(type="number" id="ASIGURARE_MARFA" name="ASIGURARE_MARFA" step="0.0001" value=`${cursa[0].ASIGURARE_MARFA}`)
+          br
+
+      // Additional fields for TRANSPORT_PERSOANE
+      div#persoane-fields(style=`display: ${cursa.TYPE === 'persoane' ? 'block' : 'none'}`)
+        fieldset
+          legend Transport Persoane Details
+          label(for="NR_PASAGERI") Numar pasageri:
+          input(type="number" id="NR_PASAGERI" name="NR_PASAGERI" value=`${cursa[0].NR_PASAGERI}`)
+          br
+
+          label(for="GHID_TURISTIC") Ghid turistic:
+          input(type="checkbox" id="GHID_TURISTIC" name="GHID_TURISTIC" value="true" checked=`${cursa[0].GHID_TURISTIC}`)
+          br
+
+      button(type="submit") Salveaza

@@ -1,0 +1,83 @@
+doctype html
+html
+  head
+    title Add Cursa
+    link(rel="stylesheet" href="/css/style.css")
+    script(src="/js/add.js") 
+  body
+    h1 Add New Cursa
+
+    form(action="/cursa" method="POST")
+      fieldset
+        label(for="VEHICUL_ID") Vehicul:
+        select(id="VEHICUL_ID" name="VEHICUL_ID" required)
+          each vehicul in vehiculeList
+            option(value=vehicul.VEHICUL_ID)= vehicul.MARCA+" "+vehicul.MODEL
+        br
+
+        label(for="LOC_PLECARE") Loc plecare:
+        input(type="text" id="LOC_PLECARE" name="LOC_PLECARE" required)
+        br
+
+        label(for="LOC_SOSIRE") Loc sosire:
+        input(type="text" id="LOC_SOSIRE" name="LOC_SOSIRE" required)
+        br
+
+        label(for="DATA_ORA_PLECARE") Data ora plecare:
+        input(type="datetime-local" id="DATA_ORA_PLECARE" name="DATA_ORA_PLECARE" required)
+        br
+
+        label(for="DATA_ORA_SOSIRE") Data ora sosire:
+        input(type="datetime-local" id="DATA_ORA_SOSIRE" name="DATA_ORA_SOSIRE")
+        br
+
+        label(for="COST_TOTAL") Cost total:
+        input(type="number" id="COST_TOTAL" name="COST_TOTAL" step="0.0001" required)
+        br
+
+      fieldset
+        legend Subtable Selection
+        input(type="radio" id="marfa" name="subtable" value="marfa" checked)
+        label(for="marfa") Transport Marfa
+        br
+        input(type="radio" id="persoane" name="subtable" value="persoane")
+        label(for="persoane") Transport Persoane
+        br
+
+      // Additional fields for TRANSPORT_MARFA
+      div#marfa-fields
+        fieldset
+          legend Transport Marfa Details
+          label(for="TIP_MARFA") Freight Type:
+          input(type="text" id="TIP_MARFA" name="TIP_MARFA")
+          br
+
+          label(for="GREUTATE_MARFA") Greutate Marfa:
+          input(type="number" id="GREUTATE_MARFA" name="GREUTATE_MARFA" step="0.01")
+          br
+
+          label(for="VOLUM_MARFA") Volum marfa:
+          input(type="number" id="VOLUM_MARFA" name="VOLUM_MARFA" step="0.01")
+          br
+
+          label(for="CONDITII_SPECIALE") Conditii speciale:
+          input(type="text" id="CONDITII_SPECIALE" name="CONDITII_SPECIALE")
+          br
+
+          label(for="ASIGURARE_MARFA") Asigurare:
+          input(type="number" id="ASIGURARE_MARFA" name="ASIGURARE_MARFA" step="0.0001")
+          br
+
+      // Additional fields for TRANSPORT_PERSOANE
+      div#persoane-fields(style="display:none")
+        fieldset
+          legend Transport Persoane Details
+          label(for="NR_PASAGERI") Numar pasageri:
+          input(type="number" id="NR_PASAGERI" name="NR_PASAGERI")
+          br
+
+          label(for="GHID_TURISTIC") Ghid turistic:
+          input(type="checkbox" id="GHID_TURISTIC" name="GHID_TURISTIC" value="true")
+          br
+
+      button(type="submit") Submit

@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title Edit Sofer
+    // Correctly using the <link> tag to link external CSS
+    link(rel="stylesheet" href="/css/style.css") 
+  body
+    h1 Edit sofer
+
+    // Form for adding a new driver
+    form(action=`/sofer/${sofer[0].SOFER_ID}?_method=PUT` method="POST" class="page_form")
+      label(for="NUME") Nume:
+      input(type="text" id="NUME" name="NUME" value=`${sofer[0].NUME}` required)
+      br
+
+      label(for="PRENUME") Prenume:
+      input(type="text" id="PRENUME" value=`${sofer[0].PRENUME}` name="PRENUME" required)
+      br
+
+      label(for="DATA_NASTERE") Data Nastere:
+      input(type="date" id="DATA_NASTERE" name="DATA_NASTERE" value=`${sofer[0].DATA_NASTERE.toISOString().split('T')[0]}` required)
+      br
+
+      label(for="DATA_ANGAJARE") Data Angajare:
+      input(type="date" id="DATA_ANGAJARE" name="DATA_ANGAJARE" value=`${sofer[0].DATA_ANGAJARE.toISOString().split('T')[0]}` required)
+      br
+
+      label(for="SALARIU") Salariu:
+      input(type="number" id="SALARIU" name="SALARIU" step="0.01" value=`${sofer[0].SALARIU}` required)
+      br
+
+      button(type="submit") Submit

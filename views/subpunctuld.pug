@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title Subpunctul d
+    link(rel="stylesheet" href="/css/style.css")
+  body
+    h1 Subpunctul d
+    h2 
+        |SELECT C.LOC_PLECARE,
+        |  SUM(C.COST_TOTAL)   AS "COST TOTAL PER LOCATIE",
+        |  SUM(TP.NR_PASAGERI) AS "NR TOTAL PASAGERI PER LOCATIE"
+        |FROM PROIECT_BD.CURSA C
+        |        JOIN PROIECT_BD.TRANSPORT_PERSOANE TP on C.CURSA_ID = TP.CURSA_ID
+        |HAVING SUM(TP.NR_PASAGERI) > 10
+        |GROUP BY C.LOC_PLECARE;
+
+    table(border="1" cellpadding="10")
+      thead
+        tr
+          th Loc Plecare
+          th Cost total per locatie
+          th Numar total pasageri per locatie
+      tbody
+        each inregistrare in inregistrareList
+          tr
+            td= inregistrare.LOC_PLECARE
+            td= inregistrare.COST_TOTAL_PER_LOCATIE
+            td= inregistrare.NR_TOTAL_PASAGERI_PER_LOCATIE

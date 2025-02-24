@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title Subpunctul c
+    link(rel="stylesheet" href="/css/style.css")
+  body
+    h1 Subpunctul c
+    h2 
+    |SELECT M.TIP_MENTENANTA,  M.DESCRIERE, M.COST, V.MODEL, V.MARCA, V.NR_KILOMETRI,
+    |   CASE
+    |      WHEN A2.VEHICUL_ID IS NOT NULL THEN 'Autocar'
+    |      WHEN T.VEHICUL_ID IS NOT NULL THEN 'TIR'
+    |      END AS TIP_VEHICUL
+    |   FROM PROIECT_BD.MENTENANTA M
+    |    JOIN PROIECT_BD.VEHICUL V
+    |         on M.VEHICUL_ID = V.VEHICUL_ID
+    |    LEFT JOIN PROIECT_BD.AUTOCAR A2 on V.VEHICUL_ID = A2.VEHICUL_ID
+    |    LEFT JOIN PROIECT_BD.TIR T on V.VEHICUL_ID = T.VEHICUL_ID
+    |   WHERE V.MARCA = 'Mercedes' AND M.COST >= 300;
+
+    table(border="1" cellpadding="10")
+      thead
+        tr
+          th Tip Mentenanta
+          th Descriere
+          th Cost
+          th Model
+          th Marca
+          th Numar Kilometri
+          th Tip Vehicul
+      tbody
+        each inregistrare in inregistrareList
+          tr
+            td= inregistrare.TIP_MENTENANTA
+            td= inregistrare.DESCRIERE
+            td= inregistrare.COST
+            td= inregistrare.MODEL
+            td= inregistrare.MARCA
+            td= inregistrare.NR_KILOMETRI 
+            td= inregistrare.TIP_VEHICUL

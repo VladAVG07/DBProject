@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title Adauga sofer
+    link(rel="stylesheet" href="/css/style.css") 
+  body
+    h1 Adauga sofer
+
+    form(action="/sofer" method="POST" class="page_form")
+      label(for="NUME") Nume:
+      input(type="text" id="NUME" name="NUME" required)
+      br
+
+      label(for="PRENUME") Prenume:
+      input(type="text" id="PRENUME" name="PRENUME" required)
+      br
+
+      label(for="DATA_NASTERE") Data nastere:
+      input(type="date" id="DATA_NASTERE" name="DATA_NASTERE" required)
+      br
+
+      label(for="DATA_ANGAJARE") Data angajare:
+      input(type="date" id="DATA_ANGAJARE" name="DATA_ANGAJARE" required)
+      br
+
+      label(for="SALARIU") Salariu:
+      input(type="number" id="SALARIU" name="SALARIU" step="0.01" required)
+      br
+
+      button(type="submit") adauga

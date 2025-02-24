@@ -1,0 +1,75 @@
+doctype html
+html
+  head
+    title Vehicule
+    link(rel="stylesheet" href="/css/style.css")
+  body
+    a(href="/vehicul/add" class="btn btn-primary") Add New Vehicul
+    
+    h1 Autocare
+
+    table(border="1" cellpadding="10")
+      thead
+        tr
+          th ID Vehicul
+          th Marca
+          th Model
+          th Numar Kilometri
+          th An Fabricatie
+          th Capacitate rezervor
+          th Numar locuri
+          th Spatiu bagaje
+          th Dotari
+          th Actiuni
+
+      tbody
+        each vehicul in vehiculList1
+          tr
+            td= vehicul.VEHICUL_ID
+            td= vehicul.MARCA
+            td= vehicul.MODEL
+            td= vehicul.NR_KILOMETRI
+            td= vehicul.AN_FABRICATIE
+            td= vehicul.CAPACITATE_REZERVOR 
+            td= vehicul.NR_LOCURI 
+            td= vehicul.SPATIU_BAGAJE
+            td= vehicul.DOTARI
+            td
+              a(href=`/vehuicul/edit/${vehicul.VEHICUL_ID}` class="btn btn-warning") Edit
+              form(action=`/vehicul/${vehicul.VEHICUL_ID}?_method=DELETE` method="POST" class="tabel_form" style="display:inline")
+                button(type="submit") Delete
+
+
+  h1 Tiruri
+
+  table(border="1" cellpadding="10")
+      thead
+        tr
+          th ID Vehicul
+          th Marca
+          th Model
+          th Numar Kilometri
+          th An Fabricatie
+          th Capacitate rezervor
+          th Capacitate cilindrica
+          th Greutate maxima
+          th Tip Tractiune
+          th Numar axe
+          th Actiuni
+      tbody
+        each vehicul in vehiculList2
+          tr
+            td= vehicul.VEHICUL_ID
+            td= vehicul.MARCA
+            td= vehicul.MODEL
+            td= vehicul.NR_KILOMETRI
+            td= vehicul.AN_FABRICATIE
+            td= vehicul.CAPACITATE_REZERVOR
+            td= vehicul.CAPACITATE_CILINDRICA
+            td= vehicul.GREUTATE_MAXIMA 
+            td= vehicul.TIP_TRACTIUNE 
+            td= vehicul.NR_AXE
+            td
+              a(href=`/vehuicul/edit/${vehicul.VEHICUL_ID}` class="btn btn-warning") Edit
+              form(action=`/vehicul/${vehicul.VEHICUL_ID}?_method=DELETE` method="POST" class="tabel_form" style="display:inline")
+                button(type="submit") Delete

@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title Listă Clienți
+    link(rel="stylesheet" href="/css/style.css")
+  body
+    h1 Listă Clienți
+
+    a(href="/client/add" class="btn btn-primary") Adaugă client nou
+
+    table(border="1" cellpadding="10")
+      thead
+        tr
+          th ID
+          th Nume
+          th Descriere
+          th Tip client
+          th Nr. Telefon
+          th Email
+          th Județ
+          th Oraș
+          th Acțiuni
+      tbody
+        each client in clientList
+          tr
+            td= client.CLIENT_ID
+            td= client.NUME
+            td= client.DESCRIERE
+            td= client.TIP_CLIENT
+            td= client.NR_TELEFON
+            td= client.EMAIL
+            td= client.JUDET
+            td= client.ORAS
+            td
+                a(href=`/client/edit/${client.CLIENT_ID}` class="btn btn-warning") Editează
+                form(action=`/client/${client.CLIENT_ID}?_method=DELETE` method="POST" class="tabel_form" style="display: inline;")
+                  button(type="submit" class="btn btn-danger") Șterge

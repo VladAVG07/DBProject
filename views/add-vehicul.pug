@@ -1,0 +1,78 @@
+doctype html
+html
+  head
+    title Add New Vehicul
+    link(rel="stylesheet" href="/css/style.css")
+    script(src="/js/addVehicul.js") 
+  body
+    h1 Add New Vehicul
+
+    form(action="/vehicul" method="POST")
+      fieldset
+        legend Vehicul Information
+        label(for="MARCA") Marca:
+        input(type="text" id="MARCA" name="MARCA" required)
+        br
+
+        label(for="MODEL") Model:
+        input(type="text" id="MODEL" name="MODEL" required)
+        br
+
+        label(for="NR_KILOMETRI") Nr Kilometri:
+        input(type="number" id="NR_KILOMETRI" name="NR_KILOMETRI" required)
+        br
+
+        label(for="AN_FABRICATIE") An fabricatie:
+        input(type="number" id="AN_FABRICATIE" name="AN_FABRICATIE" required)
+        br
+
+        label(for="CAPACITATE_REZERVOR") Capacitate rezervor:
+        input(type="number" id="CAPACITATE_REZERVOR" name="CAPACITATE_REZERVOR" required)
+        br
+
+      fieldset
+        legend Vehicle Type
+        input(type="radio" id="autocar" name="type" value="autocar" checked)
+        label(for="autocar") Autocar
+        br
+        input(type="radio" id="tir" name="type" value="tir")
+        label(for="tir") TIR
+        br
+
+      // Additional fields for AUTOCAR
+      div#autocar-fields(style="display:none")
+        fieldset
+          legend Detalii Autocar
+          label(for="NR_LOCURI") Numar locuri:
+          input(type="number" id="NR_LOCURI" name="NR_LOCURI")
+          br
+
+          label(for="SPATIU_BAGAJE") Spatiu bagaje (m²):
+          input(type="number" id="SPATIU_BAGAJE" name="SPATIU_BAGAJE" step="0.01")
+          br
+
+          label(for="DOTARI") Dotari:
+          input(type="text" id="DOTARI" name="DOTARI")
+          br
+
+      // Additional fields for TIR
+      div#tir-fields(style="display:none")
+        fieldset
+          legend Detalii tir
+          label(for="CAPACITATE_CILINDRICA") Capacitate cilindrica:
+          input(type="number" id="CAPACITATE_CILINDRICA" name="CAPACITATE_CILINDRICA")
+          br
+
+          label(for="GREUTATE_MAXIMA") Greutate maxima (kg):
+          input(type="number" id="GREUTATE_MAXIMA" name="GREUTATE_MAXIMA" step="0.01")
+          br
+
+          label(for="TIP_TRACTIUNE") Tip tractiune:
+          input(type="text" id="TIP_TRACTIUNE" name="TIP_TRACTIUNE")
+          br
+
+          label(for="NR_AXE") Numar axe:
+          input(type="number" id="NR_AXE" name="NR_AXE")
+          br
+
+      button(type="submit") Adauga
